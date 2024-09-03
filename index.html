@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+
+        <div>
+            <input v-model="loginForm.username" placeholder="Username">
+            <input v-model="loginForm.password" placeholder="Password" type="password">
+            <button v-on:click="submitForm">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello World",
+                loginForm: {
+                    username: "",
+                    password: ""
+                }
+            },
+            methods: {
+                submitForm() {
+                    console.log("Submitting login form", this.loginForm);
+
+                    var callLog = () => {
+                        this.log("Logging: something")
+                    }
+
+                    callLog();
+                },
+                log(v) {
+                    console.log(v);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
